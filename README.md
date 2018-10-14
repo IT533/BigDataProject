@@ -1,7 +1,15 @@
 # BigDataProject
-virtural environment
+create virtual environment
+```
+python3 -m venv venv 
+```
+active virtual environment
 ```
 source venv/bin/activate
+```
+deactivate virtual environment
+```
+deactivate
 ```
 
 run command
