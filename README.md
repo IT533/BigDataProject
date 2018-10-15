@@ -22,7 +22,7 @@ merge input files
 python3 src/mergefile.py
 ```
 
-## To be analyzed
+# To be analyzed
 ### Parameters
 vID, uper, category, days, len, views, rates, comments, relatedID
 
@@ -32,6 +32,28 @@ Max Min,<br>
 Inverted index,<br>
 Filter, Grep,<br>
 Top 10 Video: views, cate, uper<br>
+
+## Linear Regression with MapReduce
+Assumption: Our model is linear
+
+Attributes: category, length, views, rate, ratings, comments
+
+Predict: Age
+
+### Steps
+* Data Scrubbing
+
+    clearning data
+
+    split data (training data, testing data)
+
+* Model Training (MapReduce)
+
+    linear regression with MapReduce
+
+* Model testing
+
+
 
 # Python MapReduce Running on hadoop
 ## Hadoop Streaming
