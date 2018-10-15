@@ -1,6 +1,7 @@
 venv/
 input/
 output/
+timer/
 
 
 # https://github.com/github/gitignore
