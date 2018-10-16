@@ -2,11 +2,22 @@ import os
 import re
 
 
-def convert_csv(inputfile, outputfile):
+def convert_csv(inputfile, outputfile, headers):
     """
     convert to csv file by replace '\t' to ','
     """
     with open(outputfile, 'w') as fwrite:
+        # write headers
+        first = True
+        header = ''
+        for head in headers:
+            if first:
+                header += head
+                first = False
+            else:
+                header = header + ',' + head
+        fwrite.write(header + '\n')
+
         for line in open(inputfile, 'r'):
             fwrite.write(line.replace('\t', ','))
     fwrite.close()
@@ -55,18 +66,21 @@ def merge_file(outputfile):
         fwrite.close()
 
 
-def split_file(num, inputfile, outputfile):
+def split_file(num, inputfile, outputfile1, outputfile2):
     """
     retrieve first num of rows from inputfile to outputfile
     """
     counter = 0
-    with open(outputfile, 'w') as fwrite:
-        for line in open(inputfile):
-            if counter >= num:
-                break
-            fwrite.write(line)
-            counter += 1
-    fwrite.close()
+    with open(outputfile1, 'w') as fwrite1:
+        with open(outputfile2, 'w') as fwrite2:
+            for line in open(inputfile):
+                if counter < num:
+                    fwrite1.write(line)
+                else:
+                    fwrite2.write(line)
+                counter += 1
+        fwrite2.close()
+    fwrite1.close()
 
 
 def _helper_category(category):
