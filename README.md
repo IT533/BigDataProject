@@ -57,7 +57,7 @@ Predict: Age
 # Tools for Data
 Python Interactive Console
 ```
-python3, ipython <strike>python</strike>
+python3, ~~Python~~
 ```
 import tools
 ```
