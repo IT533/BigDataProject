@@ -59,51 +59,47 @@ def split_file(num, inputfile, outputfile):
     fwrite.close()
 
 
-def helper_category(category):
-    return category
+def _helper_category(category):
+    return '0' if category == 'Music' else '1'
 
 
-def helper_length(length):
+def _helper_length(length):
     return length
 
 
-def helper_views(views):
+def _helper_views(views):
     return views
 
 
-def helper_rate(rate):
+def _helper_rate(rate):
     return rate
 
 
-def helper_ratings(ratings):
+def _helper_ratings(ratings):
     return ratings
 
 
-def helper_comments(comments):
+def _helper_comments(comments):
     return comments
 
 
-def data_scrubbing(inputfile, output_parameters, output_result, lst):
+def data_scrubbing(inputfile, outputfile):
     """
     retrieve certain column data
-    Parameters: category, length, views, rate, ratings, comments
-    Result = Age
+    Parameters: length, views, rate, ratings, comments
+    Result = category
     """
-    with open(output_parameters) as fwrite_para:
-        with open(output_result) as fwrite_result:
-            for line in open(inputfile):
-                columns = line.split('\t')
-                # output parameters flush out
-                fwrite_result.write(columns[2])
-
-                # output result flush out
-                lst = []
-                lst.append(helper_category(columns[3]))  # category
-                lst.append(helper_length(columns[4]))  # length
-                lst.append(helper_views(columns[5]))  # views
-                lst.append(helper_rate(columns[6]))  # rate
-                lst.append(helper_ratings(columns[7]))  # ratings
-                lst.append(helper_comments(columns[8]))  # comments
-                fwrite_para.write('\t'.join(lst))
-        fwrite_result.close()
-    fwrite_para.close()
+    with open(outputfile, 'w') as fwrite:
+        for line in open(inputfile, 'r'):
+            columns = line.split('\t')
+            if columns[3] not in ('Music', 'Entertainment'):
+                continue
+            lst = []
+            lst.append(_helper_category(columns[3]))  # category
+            lst.append(_helper_length(columns[4]))    # length
+            lst.append(_helper_views(columns[5]))     # views
+            lst.append(_helper_rate(columns[6]))      # rate
+            lst.append(_helper_ratings(columns[7]))   # ratings
+            lst.append(_helper_comments(columns[8]))  # comments
+            fwrite.write('\t'.join(lst) + '\n')
+    fwrite.close()

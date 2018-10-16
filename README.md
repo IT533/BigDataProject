@@ -36,9 +36,9 @@ Top 10 Video: views, cate, uper<br>
 ## Linear Regression with MapReduce
 Assumption: Our model is linear
 
-Attributes: category, length, views, rate, ratings, comments
+Attributes: length, views, rate, ratings, comments
 
-Predict: Age
+Predict: category (Music, Entertainment)
 
 ### Steps
 * Data Scrubbing
@@ -55,7 +55,7 @@ Predict: Age
 
 
 # Tools for Data
-Python Interactive Console(python3, ~~Python~~)
+Python Interactive Console(python3, ~~python2~~)
 ```
 python3
 ```
