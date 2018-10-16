@@ -2,6 +2,16 @@ import os
 import re
 
 
+def convert_csv(inputfile, outputfile):
+    """
+    convert to csv file by replace '\t' to ','
+    """
+    with open(outputfile, 'w') as fwrite:
+        for line in open(inputfile, 'r'):
+            fwrite.write(line.replace('\t', ','))
+    fwrite.close()
+
+
 def remove_single_data(filename):
     """
     remove row wih only one column
