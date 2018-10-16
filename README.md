@@ -54,6 +54,20 @@ Predict: Age
 * Model testing
 
 
+# Tools for Data
+Python Interactive Console
+```
+python3, ipython <strike>python</strike>
+```
+import tools
+```
+from tools import datascrub
+```
+tutorial for tools usage
+```
+help(datascrub)
+```
+
 
 # Python MapReduce Running on hadoop
 ## Hadoop Streaming
