@@ -64,23 +64,33 @@ def _helper_category(category):
 
 
 def _helper_length(length):
-    return length
+    mean = 554788333 / 2256776
+    std = 14707.75343270443
+    return (length - mean) / std
 
 
 def _helper_views(views):
-    return views
+    mean = 13673018220 / 2256776
+    std = 33173.63572925056
+    return (views - mean) / std
 
 
 def _helper_rate(rate):
-    return rate
+    mean = 7789495.799998452 / 2256776
+    std = 1.9191814131318685
+    return (rate - mean) / std
 
 
 def _helper_ratings(ratings):
-    return ratings
+    mean = 36985868 / 2256776
+    std = 126.28671864395315
+    return (ratings - mean) / std
 
 
 def _helper_comments(comments):
-    return comments
+    mean = 21728872 / 2256776
+    std = 45.9752902925119
+    return (comments - mean) / std
 
 
 def data_scrubbing(inputfile, outputfile):
@@ -95,11 +105,11 @@ def data_scrubbing(inputfile, outputfile):
             if columns[3] not in ('Music', 'Entertainment'):
                 continue
             lst = []
-            lst.append(_helper_category(columns[3]))  # category
-            lst.append(_helper_length(columns[4]))    # length
-            lst.append(_helper_views(columns[5]))     # views
-            lst.append(_helper_rate(columns[6]))      # rate
-            lst.append(_helper_ratings(columns[7]))   # ratings
-            lst.append(_helper_comments(columns[8]))  # comments
+            lst.append(str(_helper_category(columns[3])))       # category
+            lst.append(str(_helper_length(int(columns[4]))))    # length
+            lst.append(str(_helper_views(int(columns[5]))))     # views
+            lst.append(str(_helper_rate(float(columns[6]))))    # rate
+            lst.append(str(_helper_ratings(int(columns[7]))))   # ratings
+            lst.append(str(_helper_comments(int(columns[8]))))  # comments
             fwrite.write('\t'.join(lst) + '\n')
     fwrite.close()
