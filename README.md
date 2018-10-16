@@ -55,10 +55,11 @@ Predict: Age
 
 
 # Tools for Data
-Python Interactive Console
+Python Interactive Console(python3, ~~Python~~)
 ```
-python3, ~~Python~~
+python3
 ```
+
 import tools
 ```
 from tools import datascrub
