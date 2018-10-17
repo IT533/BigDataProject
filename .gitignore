@@ -3,6 +3,10 @@ input/
 output/
 timer/
 __pycache__/
+*.ipynb
+
+# exclude
+!BigDataProject.ipynb
 
 
 # https://github.com/github/gitignore
