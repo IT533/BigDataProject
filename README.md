@@ -22,6 +22,11 @@ merge input files
 python3 src/mergefile.py
 ```
 
+jupyter notebook
+```
+jupyter notebook BigDataProject.ipynb
+```
+
 # To be analyzed
 ### Parameters
 vID, uper, category, days, len, views, rates, comments, relatedID
