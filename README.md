@@ -76,6 +76,36 @@ help(datascrub)
 
 
 # Python MapReduce Running on hadoop
+##Implement MapReduce
+source: [https://wiki.apache.org/hadoop/](https://wiki.apache.org/hadoop/)
+
+* Hadoop Streaming
+
+	[MRJob](https://pythonhosted.org/mrjob/)
+
+* Hadoop Pips
+
+	To upload the binary files to HDFS, the command syntax is:
+	
+	```
+	bin/hadoop fs -put build/c++-examples/Linux-i386-32/bin /examples/bin
+	```
+	
+	run
+
+    ```
+    bin/hadoop pipes -conf src/examples/pipes/conf/word.xml -input in-dir -output out-dir
+
+    ```
+
+* Java MapReduce
+
+	[Jython](http://www.jython.org/Project/index.html)
+	
+	```
+	bin/hadoop jar src/examples/python/wc.jar in-dir out-dir
+	```
+
 ## Hadoop Streaming
 Hadoop streaming is a utility that comes with the Hadoop distribution. The utility allows you to create and run Map/Reduce jobs with any executable or script as the mapper and/or the reducer.
 
