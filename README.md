@@ -83,7 +83,12 @@ source: [https://wiki.apache.org/hadoop/](https://wiki.apache.org/hadoop/)
 
 [MRJob](https://pythonhosted.org/mrjob/)
 
+```
+python mrjob/examples/mr_word_freq_count.py README.rst -r hadoop > counts
+```
+
 * Hadoop Pips
+
 pyinstaller, ~~py2bin~~
 
 To upload the binary files to HDFS, the command syntax is:
